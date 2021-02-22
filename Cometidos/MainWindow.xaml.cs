@@ -24,5 +24,13 @@ namespace Cometidos
         {
             InitializeComponent();
         }
+
+        private void BtnLogin_Click(object sender, RoutedEventArgs e) {
+            if (TxtUser.Text == "123" && TxtPassword.Text == "123") {
+                Index index = new Index("seba");
+                index.Show();
+                this.Close();
+            }
+        }
     }
 }
