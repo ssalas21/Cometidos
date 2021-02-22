@@ -17,12 +17,16 @@ namespace Cometidos {
     /// Lógica de interacción para Solicitud.xaml
     /// </summary>
     public partial class Solicitud : Window {
-        public Solicitud() {
+        string usuario;
+        Index index;
+        public Solicitud(string user, Index aux) {
             InitializeComponent();
+            index = aux;
+            usuario = user;
         }
 
         private void Window_Closed(object sender, EventArgs e) {
-            
+            index.IsEnabled = true;
         }
     }
 }

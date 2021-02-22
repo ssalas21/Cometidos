@@ -24,7 +24,7 @@ namespace Cometidos {
         }
 
         private void BtnSolicitud_Click(object sender, RoutedEventArgs e) {
-            Solicitud solicitud = new Solicitud();
+            Solicitud solicitud = new Solicitud(usuario, this);
             solicitud.Show();
             this.IsEnabled = false;
         }
