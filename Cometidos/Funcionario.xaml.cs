@@ -35,5 +35,10 @@ namespace Cometidos {
             this.Close();
             index.IsEnabled = true;
         }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+            index.IsEnabled = true;
+        }
     }
 }

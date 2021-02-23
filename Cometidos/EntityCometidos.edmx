@@ -1,0 +1,656 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBCometidosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Afp">
+          <Key>
+            <PropertyRef Name="IdAfp" />
+          </Key>
+          <Property Name="IdAfp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreAfp" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cometidos">
+          <Key>
+            <PropertyRef Name="IdCometidos" />
+          </Key>
+          <Property Name="IdCometidos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rut_fk" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="IdDestino_FK" Type="int" Nullable="false" />
+          <Property Name="Fecha_cometido" Type="datetime" Nullable="false" />
+          <Property Name="Hora_salida" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Hora_llegada" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Motivo" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nulo" Type="int" Nullable="false" />
+          <Property Name="Valor_destino_old" Type="int" Nullable="false" />
+          <Property Name="Viatico" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="IdDestino" />
+          </Key>
+          <Property Name="IdDestino" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDestino" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Valor_destino" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Rut" />
+          </Key>
+          <Property Name="Rut" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha_nacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Sexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Civil" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Grado" Type="int" Nullable="false" />
+          <Property Name="IdVinculo_FK" Type="int" Nullable="false" />
+          <Property Name="IdEscalafon_FK" Type="int" Nullable="false" />
+          <Property Name="IdDepartamento_FK" Type="int" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="IdIsapre_FK" Type="int" Nullable="false" />
+          <Property Name="IdAfp_FK" Type="int" Nullable="false" />
+          <Property Name="Fecha_inic_contrato" Type="datetime" Nullable="false" />
+          <Property Name="Fecha_fin_contrato" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Escalafon">
+          <Key>
+            <PropertyRef Name="IdEscalafon" />
+          </Key>
+          <Property Name="IdEscalafon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEscalafon" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Estudios">
+          <Key>
+            <PropertyRef Name="IdEstudios" />
+          </Key>
+          <Property Name="IdEstudios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rut_fk" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Nivel" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Isapre">
+          <Key>
+            <PropertyRef Name="IdIsapre" />
+          </Key>
+          <Property Name="IdIsapre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreIsapre" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DBCometidos.dbo.ValoresViaticos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ValoresViaticos">
+          <Key>
+            <PropertyRef Name="IdValores" />
+            <PropertyRef Name="RanMin" />
+            <PropertyRef Name="RanMax" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdValores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RanMin" Type="int" Nullable="false" />
+          <Property Name="RanMax" Type="int" Nullable="false" />
+          <Property Name="Valor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vinculo">
+          <Key>
+            <PropertyRef Name="IdVinculo" />
+          </Key>
+          <Property Name="IdVinculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreVinculo" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Cometidos__IdDes__20C1E124">
+          <End Role="Destino" Type="Self.Destino" Multiplicity="1" />
+          <End Role="Cometidos" Type="Self.Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destino">
+              <PropertyRef Name="IdDestino" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="IdDestino_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cometidos__Rut_f__21B6055D">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Cometidos" Type="Self.Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Rut" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="Rut_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdAfp__182C9B23">
+          <End Role="Afp" Type="Self.Afp" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Afp">
+              <PropertyRef Name="IdAfp" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdAfp_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdDep__164452B1">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdDepartamento_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdEsc__15502E78">
+          <End Role="Escalafon" Type="Self.Escalafon" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Escalafon">
+              <PropertyRef Name="IdEscalafon" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdEscalafon_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdIsa__173876EA">
+          <End Role="Isapre" Type="Self.Isapre" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isapre">
+              <PropertyRef Name="IdIsapre" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdIsapre_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdVin__145C0A3F">
+          <End Role="Vinculo" Type="Self.Vinculo" Multiplicity="1" />
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinculo">
+              <PropertyRef Name="IdVinculo" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdVinculo_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudios__Rut_fk__267ABA7A">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Estudios" Type="Self.Estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Rut" />
+            </Principal>
+            <Dependent Role="Estudios">
+              <PropertyRef Name="Rut_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBCometidosModelStoreContainer">
+          <EntitySet Name="Afp" EntityType="Self.Afp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cometidos" EntityType="Self.Cometidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Destino" EntityType="Self.Destino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Escalafon" EntityType="Self.Escalafon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudios" EntityType="Self.Estudios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Isapre" EntityType="Self.Isapre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vinculo" EntityType="Self.Vinculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ValoresViaticos" EntityType="Self.ValoresViaticos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ValoresViaticos].[IdValores] AS [IdValores], 
+    [ValoresViaticos].[RanMin] AS [RanMin], 
+    [ValoresViaticos].[RanMax] AS [RanMax], 
+    [ValoresViaticos].[Valor] AS [Valor]
+    FROM [dbo].[ValoresViaticos] AS [ValoresViaticos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Cometidos__IdDes__20C1E124" Association="Self.FK__Cometidos__IdDes__20C1E124">
+            <End Role="Destino" EntitySet="Destino" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cometidos__Rut_f__21B6055D" Association="Self.FK__Cometidos__Rut_f__21B6055D">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdAfp__182C9B23" Association="Self.FK__Empleados__IdAfp__182C9B23">
+            <End Role="Afp" EntitySet="Afp" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdDep__164452B1" Association="Self.FK__Empleados__IdDep__164452B1">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdEsc__15502E78" Association="Self.FK__Empleados__IdEsc__15502E78">
+            <End Role="Escalafon" EntitySet="Escalafon" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdIsa__173876EA" Association="Self.FK__Empleados__IdIsa__173876EA">
+            <End Role="Isapre" EntitySet="Isapre" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdVin__145C0A3F" Association="Self.FK__Empleados__IdVin__145C0A3F">
+            <End Role="Vinculo" EntitySet="Vinculo" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudios__Rut_fk__267ABA7A" Association="Self.FK__Estudios__Rut_fk__267ABA7A">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Estudios" EntitySet="Estudios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBCometidosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBCometidosEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="Afp" EntityType="DBCometidosModel.Afp" />
+          <EntitySet Name="Cometidos" EntityType="DBCometidosModel.Cometidos" />
+          <EntitySet Name="Departamento" EntityType="DBCometidosModel.Departamento" />
+          <EntitySet Name="Destino" EntityType="DBCometidosModel.Destino" />
+          <EntitySet Name="Empleados" EntityType="DBCometidosModel.Empleados" />
+          <EntitySet Name="Escalafon" EntityType="DBCometidosModel.Escalafon" />
+          <EntitySet Name="Estudios" EntityType="DBCometidosModel.Estudios" />
+          <EntitySet Name="Isapre" EntityType="DBCometidosModel.Isapre" />
+          <EntitySet Name="Vinculo" EntityType="DBCometidosModel.Vinculo" />
+          <EntitySet Name="ValoresViaticos" EntityType="DBCometidosModel.ValoresViaticos" />
+          <AssociationSet Name="FK__Empleados__IdAfp__182C9B23" Association="DBCometidosModel.FK__Empleados__IdAfp__182C9B23">
+            <End Role="Afp" EntitySet="Afp" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cometidos__IdDes__20C1E124" Association="DBCometidosModel.FK__Cometidos__IdDes__20C1E124">
+            <End Role="Destino" EntitySet="Destino" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cometidos__Rut_f__21B6055D" Association="DBCometidosModel.FK__Cometidos__Rut_f__21B6055D">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdDep__164452B1" Association="DBCometidosModel.FK__Empleados__IdDep__164452B1">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdEsc__15502E78" Association="DBCometidosModel.FK__Empleados__IdEsc__15502E78">
+            <End Role="Escalafon" EntitySet="Escalafon" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdIsa__173876EA" Association="DBCometidosModel.FK__Empleados__IdIsa__173876EA">
+            <End Role="Isapre" EntitySet="Isapre" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Empleados__IdVin__145C0A3F" Association="DBCometidosModel.FK__Empleados__IdVin__145C0A3F">
+            <End Role="Vinculo" EntitySet="Vinculo" />
+            <End Role="Empleados" EntitySet="Empleados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Estudios__Rut_fk__267ABA7A" Association="DBCometidosModel.FK__Estudios__Rut_fk__267ABA7A">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Estudios" EntitySet="Estudios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Afp">
+          <Key>
+            <PropertyRef Name="IdAfp" />
+          </Key>
+          <Property Name="IdAfp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreAfp" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Empleados__IdAfp__182C9B23" FromRole="Afp" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Cometidos">
+          <Key>
+            <PropertyRef Name="IdCometidos" />
+          </Key>
+          <Property Name="IdCometidos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rut_fk" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="IdDestino_FK" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_cometido" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Hora_salida" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Hora_llegada" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Motivo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Nulo" Type="Int32" Nullable="false" />
+          <Property Name="Valor_destino_old" Type="Int32" Nullable="false" />
+          <Property Name="Viatico" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Destino" Relationship="DBCometidosModel.FK__Cometidos__IdDes__20C1E124" FromRole="Cometidos" ToRole="Destino" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Cometidos__Rut_f__21B6055D" FromRole="Cometidos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDepartamento" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Empleados__IdDep__164452B1" FromRole="Departamento" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="IdDestino" />
+          </Key>
+          <Property Name="IdDestino" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDestino" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_destino" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cometidos" Relationship="DBCometidosModel.FK__Cometidos__IdDes__20C1E124" FromRole="Destino" ToRole="Cometidos" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Rut" />
+          </Key>
+          <Property Name="Rut" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fecha_nacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Civil" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Grado" Type="Int32" Nullable="false" />
+          <Property Name="IdVinculo_FK" Type="Int32" Nullable="false" />
+          <Property Name="IdEscalafon_FK" Type="Int32" Nullable="false" />
+          <Property Name="IdDepartamento_FK" Type="Int32" Nullable="false" />
+          <Property Name="Cargo" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdIsapre_FK" Type="Int32" Nullable="false" />
+          <Property Name="IdAfp_FK" Type="Int32" Nullable="false" />
+          <Property Name="Fecha_inic_contrato" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fecha_fin_contrato" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Afp" Relationship="DBCometidosModel.FK__Empleados__IdAfp__182C9B23" FromRole="Empleados" ToRole="Afp" />
+          <NavigationProperty Name="Cometidos" Relationship="DBCometidosModel.FK__Cometidos__Rut_f__21B6055D" FromRole="Empleados" ToRole="Cometidos" />
+          <NavigationProperty Name="Departamento" Relationship="DBCometidosModel.FK__Empleados__IdDep__164452B1" FromRole="Empleados" ToRole="Departamento" />
+          <NavigationProperty Name="Escalafon" Relationship="DBCometidosModel.FK__Empleados__IdEsc__15502E78" FromRole="Empleados" ToRole="Escalafon" />
+          <NavigationProperty Name="Isapre" Relationship="DBCometidosModel.FK__Empleados__IdIsa__173876EA" FromRole="Empleados" ToRole="Isapre" />
+          <NavigationProperty Name="Vinculo" Relationship="DBCometidosModel.FK__Empleados__IdVin__145C0A3F" FromRole="Empleados" ToRole="Vinculo" />
+          <NavigationProperty Name="Estudios" Relationship="DBCometidosModel.FK__Estudios__Rut_fk__267ABA7A" FromRole="Empleados" ToRole="Estudios" />
+        </EntityType>
+        <EntityType Name="Escalafon">
+          <Key>
+            <PropertyRef Name="IdEscalafon" />
+          </Key>
+          <Property Name="IdEscalafon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEscalafon" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Empleados__IdEsc__15502E78" FromRole="Escalafon" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Estudios">
+          <Key>
+            <PropertyRef Name="IdEstudios" />
+          </Key>
+          <Property Name="IdEstudios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rut_fk" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Nivel" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Estudios__Rut_fk__267ABA7A" FromRole="Estudios" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Isapre">
+          <Key>
+            <PropertyRef Name="IdIsapre" />
+          </Key>
+          <Property Name="IdIsapre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreIsapre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Empleados__IdIsa__173876EA" FromRole="Isapre" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Vinculo">
+          <Key>
+            <PropertyRef Name="IdVinculo" />
+          </Key>
+          <Property Name="IdVinculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreVinculo" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empleados" Relationship="DBCometidosModel.FK__Empleados__IdVin__145C0A3F" FromRole="Vinculo" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="ValoresViaticos">
+          <Key>
+            <PropertyRef Name="IdValores" />
+            <PropertyRef Name="RanMin" />
+            <PropertyRef Name="RanMax" />
+            <PropertyRef Name="Valor" />
+          </Key>
+          <Property Name="IdValores" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RanMin" Type="Int32" Nullable="false" />
+          <Property Name="RanMax" Type="Int32" Nullable="false" />
+          <Property Name="Valor" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Empleados__IdAfp__182C9B23">
+          <End Type="DBCometidosModel.Afp" Role="Afp" Multiplicity="1" />
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Afp">
+              <PropertyRef Name="IdAfp" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdAfp_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cometidos__IdDes__20C1E124">
+          <End Type="DBCometidosModel.Destino" Role="Destino" Multiplicity="1" />
+          <End Type="DBCometidosModel.Cometidos" Role="Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destino">
+              <PropertyRef Name="IdDestino" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="IdDestino_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cometidos__Rut_f__21B6055D">
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="DBCometidosModel.Cometidos" Role="Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Rut" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="Rut_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdDep__164452B1">
+          <End Type="DBCometidosModel.Departamento" Role="Departamento" Multiplicity="1" />
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdDepartamento_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdEsc__15502E78">
+          <End Type="DBCometidosModel.Escalafon" Role="Escalafon" Multiplicity="1" />
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Escalafon">
+              <PropertyRef Name="IdEscalafon" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdEscalafon_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdIsa__173876EA">
+          <End Type="DBCometidosModel.Isapre" Role="Isapre" Multiplicity="1" />
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Isapre">
+              <PropertyRef Name="IdIsapre" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdIsapre_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Empleados__IdVin__145C0A3F">
+          <End Type="DBCometidosModel.Vinculo" Role="Vinculo" Multiplicity="1" />
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vinculo">
+              <PropertyRef Name="IdVinculo" />
+            </Principal>
+            <Dependent Role="Empleados">
+              <PropertyRef Name="IdVinculo_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Estudios__Rut_fk__267ABA7A">
+          <End Type="DBCometidosModel.Empleados" Role="Empleados" Multiplicity="1" />
+          <End Type="DBCometidosModel.Estudios" Role="Estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Rut" />
+            </Principal>
+            <Dependent Role="Estudios">
+              <PropertyRef Name="Rut_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBCometidosModelStoreContainer" CdmEntityContainer="DBCometidosEntities" >
+          <EntitySetMapping Name="Afp">
+            <EntityTypeMapping TypeName="DBCometidosModel.Afp">
+              <MappingFragment StoreEntitySet="Afp">
+                <ScalarProperty Name="NombreAfp" ColumnName="NombreAfp" />
+                <ScalarProperty Name="IdAfp" ColumnName="IdAfp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cometidos">
+            <EntityTypeMapping TypeName="DBCometidosModel.Cometidos">
+              <MappingFragment StoreEntitySet="Cometidos">
+                <ScalarProperty Name="Viatico" ColumnName="Viatico" />
+                <ScalarProperty Name="Valor_destino_old" ColumnName="Valor_destino_old" />
+                <ScalarProperty Name="Nulo" ColumnName="Nulo" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Hora_llegada" ColumnName="Hora_llegada" />
+                <ScalarProperty Name="Hora_salida" ColumnName="Hora_salida" />
+                <ScalarProperty Name="Fecha_cometido" ColumnName="Fecha_cometido" />
+                <ScalarProperty Name="IdDestino_FK" ColumnName="IdDestino_FK" />
+                <ScalarProperty Name="Rut_fk" ColumnName="Rut_fk" />
+                <ScalarProperty Name="IdCometidos" ColumnName="IdCometidos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamento">
+            <EntityTypeMapping TypeName="DBCometidosModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destino">
+            <EntityTypeMapping TypeName="DBCometidosModel.Destino">
+              <MappingFragment StoreEntitySet="Destino">
+                <ScalarProperty Name="Valor_destino" ColumnName="Valor_destino" />
+                <ScalarProperty Name="NombreDestino" ColumnName="NombreDestino" />
+                <ScalarProperty Name="IdDestino" ColumnName="IdDestino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="DBCometidosModel.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="Fecha_fin_contrato" ColumnName="Fecha_fin_contrato" />
+                <ScalarProperty Name="Fecha_inic_contrato" ColumnName="Fecha_inic_contrato" />
+                <ScalarProperty Name="IdAfp_FK" ColumnName="IdAfp_FK" />
+                <ScalarProperty Name="IdIsapre_FK" ColumnName="IdIsapre_FK" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="IdDepartamento_FK" ColumnName="IdDepartamento_FK" />
+                <ScalarProperty Name="IdEscalafon_FK" ColumnName="IdEscalafon_FK" />
+                <ScalarProperty Name="IdVinculo_FK" ColumnName="IdVinculo_FK" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Civil" ColumnName="Civil" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Fecha_nacimiento" ColumnName="Fecha_nacimiento" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Escalafon">
+            <EntityTypeMapping TypeName="DBCometidosModel.Escalafon">
+              <MappingFragment StoreEntitySet="Escalafon">
+                <ScalarProperty Name="NombreEscalafon" ColumnName="NombreEscalafon" />
+                <ScalarProperty Name="IdEscalafon" ColumnName="IdEscalafon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudios">
+            <EntityTypeMapping TypeName="DBCometidosModel.Estudios">
+              <MappingFragment StoreEntitySet="Estudios">
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Rut_fk" ColumnName="Rut_fk" />
+                <ScalarProperty Name="IdEstudios" ColumnName="IdEstudios" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Isapre">
+            <EntityTypeMapping TypeName="DBCometidosModel.Isapre">
+              <MappingFragment StoreEntitySet="Isapre">
+                <ScalarProperty Name="NombreIsapre" ColumnName="NombreIsapre" />
+                <ScalarProperty Name="IdIsapre" ColumnName="IdIsapre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vinculo">
+            <EntityTypeMapping TypeName="DBCometidosModel.Vinculo">
+              <MappingFragment StoreEntitySet="Vinculo">
+                <ScalarProperty Name="NombreVinculo" ColumnName="NombreVinculo" />
+                <ScalarProperty Name="IdVinculo" ColumnName="IdVinculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ValoresViaticos">
+            <EntityTypeMapping TypeName="DBCometidosModel.ValoresViaticos">
+              <MappingFragment StoreEntitySet="ValoresViaticos">
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="RanMax" ColumnName="RanMax" />
+                <ScalarProperty Name="RanMin" ColumnName="RanMin" />
+                <ScalarProperty Name="IdValores" ColumnName="IdValores" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

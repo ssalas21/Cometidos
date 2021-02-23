@@ -12,7 +12,7 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="61" Margin="33,348,0,0" Stroke="Black" VerticalAlignment="Top" Width="717"/>
         <DataGrid HorizontalAlignment="Left" Height="218" Margin="47,106,0,0" VerticalAlignment="Top" Width="692"/>
         <Button x:Name="BtnSeleccionar" Content="Seleccionar funcionario" HorizontalAlignment="Left" Margin="103,366,0,0" VerticalAlignment="Top" Width="228"/>
-        <Button x:Name="BtnVolver" Content="Volver atras" HorizontalAlignment="Left" Margin="438,366,0,0" VerticalAlignment="Top" Width="228"/>
+        <Button x:Name="BtnVolver" Content="Volver atras" HorizontalAlignment="Left" Margin="438,366,0,0" VerticalAlignment="Top" Width="228" Click="BtnVolver_Click"/>
         <TextBox x:Name="TxtBuscar" HorizontalAlignment="Left" Height="23" Margin="301,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="438"/>
         <Label Content="Ingrese algún dato del funcionario" HorizontalAlignment="Left" Margin="88,63,0,0" VerticalAlignment="Top"/>
     </Grid>

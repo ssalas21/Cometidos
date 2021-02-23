@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=2018.2.1.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.2018.2.1\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
@@ -51,7 +57,10 @@
       <HintPath>..\packages\Syncfusion.Licensing.18.4.0.43\lib\net46\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -88,8 +97,53 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Afp.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cometidos.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Destino.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityCometidos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityCometidos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityCometidos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityCometidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Escalafon.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estudios.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Funcionario.xaml.cs">
       <DependentUpon>Funcionario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Isapre.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValoresViaticos.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vinculo.cs">
+      <DependentUpon>EntityCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -140,6 +194,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="EntityCometidos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityCometidos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityCometidos.edmx.diagram">
+      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,6 +212,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityCometidos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityCometidos.Context.cs</LastGenOutput>
+      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+    </Content>
+    <Content Include="EntityCometidos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+      <LastGenOutput>EntityCometidos.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
