@@ -100,6 +100,7 @@
     <Compile Include="Afp.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
+    <Compile Include="BLL\EmpleadosBLL.cs" />
     <Compile Include="Cometidos.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
@@ -145,9 +146,6 @@
     <Compile Include="Vinculo.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="Funcionario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,10 +169,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Window1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -214,13 +208,10 @@
     <Resource Include="logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ModelCometidos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCometidos.edmx</DependentUpon>
       <LastGenOutput>ModelCometidos.Context.cs</LastGenOutput>
+      <DependentUpon>ModelCometidos.edmx</DependentUpon>
     </Content>
     <Content Include="ModelCometidos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -228,5 +219,9 @@
       <LastGenOutput>ModelCometidos.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,29 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Cometidos.BLL;
 
 namespace Cometidos {
     /// <summary>
     /// Lógica de interacción para Funcionario.xaml
     /// </summary>
-    
+
     public partial class Funcionario : Window {
         Index index;
         public Funcionario(Index aux) {
             InitializeComponent();
             index = aux;
+            DgEmpleados.ItemsSource = (new EmpleadosBLL().GetEmpleados());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            index.TxtApellidos.Text = "1";
-            this.Close();
-            index.IsEnabled = true;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
-            index.TxtApellidos.Text = "2";
-            this.Close();
-            index.IsEnabled = true;
+        private void TxtBuscar_KeyUp(object sender, KeyEventArgs e) {
+            DgEmpleados.ItemsSource = (new EmpleadosBLL().GetEmpleados(TxtBuscar.Text));
         }
 
         private void BtnVolver_Click(object sender, RoutedEventArgs e) {

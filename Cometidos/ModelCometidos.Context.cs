@@ -13,10 +13,10 @@ namespace Cometidos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CometidosEntities : DbContext
+    public partial class DBCometidosEntities : DbContext
     {
-        public CometidosEntities()
-            : base("name=CometidosEntities")
+        public DBCometidosEntities()
+            : base("name=DBCometidosEntities")
         {
         }
     

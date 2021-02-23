@@ -458,7 +458,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CometidosEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DBCometidosEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Afp" EntityType="Self.Afp" />
           <EntitySet Name="Cometidos" EntityType="Self.Cometidos" />
           <EntitySet Name="Departamento" EntityType="Self.Departamento" />
@@ -507,7 +507,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBCometidosModelStoreContainer" CdmEntityContainer="CometidosEntities">
+        <EntityContainerMapping StorageEntityContainer="DBCometidosModelStoreContainer" CdmEntityContainer="DBCometidosEntities">
           <EntitySetMapping Name="Afp">
             <EntityTypeMapping TypeName="DBCometidosModel.Afp">
               <MappingFragment StoreEntitySet="Afp">
