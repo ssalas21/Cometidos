@@ -29,7 +29,7 @@ namespace Cometidos {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            Funcionario funcionario = new Funcionario(this);
+            Funcionarios funcionario = new Funcionarios(this);
             funcionario.Show();
             this.IsEnabled = false;
         }

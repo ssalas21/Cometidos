@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Cometidos"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="Cometidos.Index"
         mc:Ignorable="d"
-        Title="Cometidos" Height="443.662" Width="807.243">
+        Title="Cometidos" Height="443.662" Width="807.243" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="212" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="154" Margin="10,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>

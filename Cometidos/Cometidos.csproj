@@ -119,8 +119,8 @@
     <Compile Include="Estudios.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Funcionario.xaml.cs">
-      <DependentUpon>Funcionario.xaml</DependentUpon>
+    <Compile Include="Funcionarios.xaml.cs">
+      <DependentUpon>Funcionarios.xaml</DependentUpon>
     </Compile>
     <Compile Include="Isapre.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
@@ -146,7 +146,7 @@
     <Compile Include="Vinculo.cs">
       <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
-    <Page Include="Funcionario.xaml">
+    <Page Include="Funcionarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

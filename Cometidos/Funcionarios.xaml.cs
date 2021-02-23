@@ -15,12 +15,11 @@ using Cometidos.BLL;
 
 namespace Cometidos {
     /// <summary>
-    /// Lógica de interacción para Funcionario.xaml
+    /// Lógica de interacción para Funcionarios.xaml
     /// </summary>
-
-    public partial class Funcionario : Window {
+    public partial class Funcionarios : Window {
         Index index;
-        public Funcionario(Index aux) {
+        public Funcionarios(Index aux) {
             InitializeComponent();
             index = aux;
             DgEmpleados.ItemsSource = (new EmpleadosBLL().GetEmpleados());
@@ -34,5 +33,6 @@ namespace Cometidos {
             this.Close();
             index.IsEnabled = true;
         }
+                
     }
 }
