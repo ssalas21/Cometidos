@@ -14,18 +14,25 @@ using System.Windows.Shapes;
 
 namespace Cometidos {
     /// <summary>
-    /// Lógica de interacción para Solicitud.xaml
+    /// Lógica de interacción para Funcionario.xaml
     /// </summary>
-    public partial class Solicitud : Window {
-        string usuario;
+    
+    public partial class Funcionario : Window {
         Index index;
-        public Solicitud(string user, Index aux) {
+        public Funcionario(Index aux) {
             InitializeComponent();
             index = aux;
-            usuario = user;
         }
 
-        private void Window_Closed(object sender, EventArgs e) {
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            index.TxtApellidos.Text = "1";
+            this.Close();
+            index.IsEnabled = true;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) {
+            index.TxtApellidos.Text = "2";
+            this.Close();
             index.IsEnabled = true;
         }
     }

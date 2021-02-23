@@ -23,9 +23,13 @@ namespace Cometidos {
             usuario = user;
         }
 
-        private void BtnSolicitud_Click(object sender, RoutedEventArgs e) {
-            Solicitud solicitud = new Solicitud(usuario, this);
-            solicitud.Show();
+        private void BtnCometido_Click(object sender, RoutedEventArgs e) {
+                        
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            Funcionario funcionario = new Funcionario(this);
+            funcionario.Show();
             this.IsEnabled = false;
         }
     }
