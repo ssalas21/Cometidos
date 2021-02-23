@@ -98,52 +98,52 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Afp.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Cometidos.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Departamento.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Destino.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Empleados.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityCometidos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityCometidos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityCometidos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityCometidos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Escalafon.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Estudios.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.xaml.cs">
       <DependentUpon>Funcionario.xaml</DependentUpon>
     </Compile>
     <Compile Include="Isapre.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCometidos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCometidos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCometidos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCometidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCometidos.edmx</DependentUpon>
     </Compile>
     <Compile Include="ValoresViaticos.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Vinculo.cs">
-      <DependentUpon>EntityCometidos.tt</DependentUpon>
+      <DependentUpon>ModelCometidos.tt</DependentUpon>
     </Compile>
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -194,12 +194,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="EntityCometidos.edmx">
+    <EntityDeploy Include="ModelCometidos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityCometidos.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelCometidos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="EntityCometidos.edmx.diagram">
-      <DependentUpon>EntityCometidos.edmx</DependentUpon>
+    <None Include="ModelCometidos.edmx.diagram">
+      <DependentUpon>ModelCometidos.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -214,19 +214,19 @@
     <Resource Include="logo.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityCometidos.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EntityCometidos.Context.cs</LastGenOutput>
-      <DependentUpon>EntityCometidos.edmx</DependentUpon>
-    </Content>
-    <Content Include="EntityCometidos.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityCometidos.edmx</DependentUpon>
-      <LastGenOutput>EntityCometidos.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="ModelCometidos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCometidos.edmx</DependentUpon>
+      <LastGenOutput>ModelCometidos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelCometidos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCometidos.edmx</DependentUpon>
+      <LastGenOutput>ModelCometidos.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

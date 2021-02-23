@@ -13,10 +13,10 @@ namespace Cometidos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBCometidosEntities : DbContext
+    public partial class CometidosEntities : DbContext
     {
-        public DBCometidosEntities()
-            : base("name=DBCometidosEntities")
+        public CometidosEntities()
+            : base("name=CometidosEntities")
         {
         }
     
@@ -33,7 +33,7 @@ namespace Cometidos
         public virtual DbSet<Escalafon> Escalafon { get; set; }
         public virtual DbSet<Estudios> Estudios { get; set; }
         public virtual DbSet<Isapre> Isapre { get; set; }
-        public virtual DbSet<Vinculo> Vinculo { get; set; }
         public virtual DbSet<ValoresViaticos> ValoresViaticos { get; set; }
+        public virtual DbSet<Vinculo> Vinculo { get; set; }
     }
 }

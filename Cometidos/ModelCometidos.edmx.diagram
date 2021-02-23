@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dacde778306a4dbebbf3fa8230a58e69" Name="Diagram1">
+        <EntityTypeShape EntityType="DBCometidosModel.Afp" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Cometidos" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Departamento" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Destino" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Empleados" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Escalafon" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Estudios" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Isapre" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.ValoresViaticos" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCometidosModel.Vinculo" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdAfp__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Cometidos__IdDes__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Cometidos__Rut_f__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdDep__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdEsc__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdIsa__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdVin__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCometidosModel.FK__Estudios__Rut_fk__267ABA7A" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
