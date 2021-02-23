@@ -21,6 +21,7 @@ namespace Cometidos {
         public Index(string user) {
             InitializeComponent();
             usuario = user;
+                        
         }
 
         private void BtnCometido_Click(object sender, RoutedEventArgs e) {
