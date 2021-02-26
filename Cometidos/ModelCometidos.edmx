@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBCometidosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBCometidosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Afp">
           <Key>
             <PropertyRef Name="IdAfp" />
@@ -20,9 +20,9 @@
           <Property Name="Rut_fk" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="IdDestino_FK" Type="int" Nullable="false" />
           <Property Name="Fecha_cometido" Type="datetime" Nullable="false" />
-          <Property Name="Hora_salida" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="Hora_llegada" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="Motivo" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Hora_salida" Type="datetime" />
+          <Property Name="Hora_llegada" Type="datetime" />
+          <Property Name="Motivo" Type="text" />
           <Property Name="Nulo" Type="int" Nullable="false" />
           <Property Name="Valor_destino_old" Type="int" Nullable="false" />
           <Property Name="Viatico" Type="int" Nullable="false" />
@@ -32,7 +32,7 @@
             <PropertyRef Name="IdDepartamento" />
           </Key>
           <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreDepartamento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Destino">
           <Key>
@@ -85,7 +85,7 @@
             <PropertyRef Name="IdIsapre" />
           </Key>
           <Property Name="IdIsapre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreIsapre" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="NombreIsapre" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ValoresViaticos">
           <Key>
@@ -243,8 +243,7 @@
             <End Role="Estudios" EntitySet="Estudios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBCometidosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -264,9 +263,9 @@
           <Property Name="Rut_fk" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdDestino_FK" Type="Int32" Nullable="false" />
           <Property Name="Fecha_cometido" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Hora_salida" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Hora_llegada" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Motivo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hora_salida" Type="DateTime" />
+          <Property Name="Hora_llegada" Type="DateTime" />
+          <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Nulo" Type="Int32" Nullable="false" />
           <Property Name="Valor_destino_old" Type="Int32" Nullable="false" />
           <Property Name="Viatico" Type="Int32" Nullable="false" />
@@ -278,7 +277,7 @@
             <PropertyRef Name="IdDepartamento" />
           </Key>
           <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreDepartamento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__IdDep__164452B1" FromRole="Departamento" ToRole="Empleados" />
         </EntityType>
         <EntityType Name="Destino">
@@ -342,7 +341,7 @@
             <PropertyRef Name="IdIsapre" />
           </Key>
           <Property Name="IdIsapre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreIsapre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreIsapre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__IdIsa__173876EA" FromRole="Isapre" ToRole="Empleados" />
         </EntityType>
         <EntityType Name="ValoresViaticos">

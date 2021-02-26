@@ -23,6 +23,7 @@ namespace Cometidos {
             InitializeComponent();
             index = aux;
             DgEmpleados.ItemsSource = (new EmpleadosBLL().GetEmpleados());
+            DgEmpleados.SelectedItem = 0;
         }
 
         private void TxtBuscar_KeyUp(object sender, KeyEventArgs e) {
@@ -33,6 +34,17 @@ namespace Cometidos {
             this.Close();
             index.IsEnabled = true;
         }
-                
+
+        private void BtnSeleccionar_Click(object sender, RoutedEventArgs e) {
+            Empleados empleado = DgEmpleados.SelectedValue as Empleados;
+            index.TxtApellidos.Text = empleado.Apellidos;
+            index.TxtCargo.Text = empleado.Cargo;
+            index.TxtDepartamento.Text = empleado.Departamento.NombreDepartamento;
+            index.TxtGrado.Text = empleado.Grado.ToString();
+            index.TxtNombres.Text = empleado.Nombres;
+            index.TxtRut.Text = empleado.Rut;
+            this.Close();
+            index.IsEnabled = true;
+        }
     }
 }

@@ -13,20 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cometidos
-{
+namespace Cometidos {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class MainWindow : Window {
+        public MainWindow() {
             InitializeComponent();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e) {
-            if (TxtUser.Text == "123" && TxtPassword.Text == "123") {
+            if (TxtUser.Text == "123" && TxtPassword.Password == "123") {
                 Index index = new Index("seba");
                 index.Show();
                 this.Close();

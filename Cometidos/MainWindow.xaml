@@ -10,7 +10,7 @@
         <Label Content="Nombre de usuario" HorizontalAlignment="Left" Margin="34,121,0,0" VerticalAlignment="Top"/>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="34,157,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtUser" HorizontalAlignment="Left" Height="23" Margin="152,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TxtPassword" HorizontalAlignment="Left" Height="23" Margin="152,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" SpellCheck.IsEnabled="True"/>
+        <PasswordBox x:Name="TxtPassword" HorizontalAlignment="Left" Height="23" Margin="152,157,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="BtnLogin" Content="Ingresar" HorizontalAlignment="Left" Margin="116,201,0,0" VerticalAlignment="Top" Width="75" Click="BtnLogin_Click"/>
         <Image Margin="102,10,110,135" Source="logo.jpg" Stretch="Fill" RenderTransformOrigin="0.848,0.983"/>
 

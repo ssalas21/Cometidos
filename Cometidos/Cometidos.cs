@@ -18,8 +18,8 @@ namespace Cometidos
         public string Rut_fk { get; set; }
         public int IdDestino_FK { get; set; }
         public System.DateTime Fecha_cometido { get; set; }
-        public string Hora_salida { get; set; }
-        public string Hora_llegada { get; set; }
+        public Nullable<System.DateTime> Hora_salida { get; set; }
+        public Nullable<System.DateTime> Hora_llegada { get; set; }
         public string Motivo { get; set; }
         public int Nulo { get; set; }
         public int Valor_destino_old { get; set; }
