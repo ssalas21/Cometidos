@@ -24,8 +24,11 @@ namespace Cometidos
         public int Nulo { get; set; }
         public int Valor_destino_old { get; set; }
         public int Viatico { get; set; }
+        public string NombreUsuario_FK { get; set; }
+        public Nullable<int> Movilizacion { get; set; }
     
         public virtual Destino Destino { get; set; }
         public virtual Empleados Empleados { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Cometidos"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="Cometidos.Index"
         mc:Ignorable="d"
-        Title="Cometidos" Height="443.662" Width="807.243" WindowStartupLocation="CenterScreen">
+        Title="Cometidos" Height="699.29" Width="807.243" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="212" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="154" Margin="10,234,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
@@ -38,14 +38,27 @@
         <TextBox x:Name="TxtMotivo" HorizontalAlignment="Left" Height="50" Margin="133,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
         <Calendar x:Name="CalFecha" HorizontalAlignment="Left" Margin="501,49,0,0" VerticalAlignment="Top" Width="189" Height="179"/>
         <CheckBox x:Name="ChkViatico" Content="Con derecho a viatico" HorizontalAlignment="Left" Margin="524,297,0,0" VerticalAlignment="Top"/>
-        <xctk:TimePicker x:Name="TpHoraInicio" Value="{Binding starttime, ElementName=Time, Mode=TwoWay}" BorderThickness="0" EndTime="23:59:0" AllowSpin="False" Margin="467,247,208,137" StartTime="6:0:0" TimeInterval="0:30:0"/>
+        <xctk:TimePicker x:Name="TpHoraInicio" Value="{Binding starttime, ElementName=Time, Mode=TwoWay}" BorderThickness="0" EndTime="23:59:0" AllowSpin="False" Margin="467,247,208,394" StartTime="6:0:0" TimeInterval="0:30:0"/>
 
         <Label Content="Desde" HorizontalAlignment="Left" Margin="422,249,0,0" VerticalAlignment="Top"/>
         <Label Content="Hasta" HorizontalAlignment="Left" Margin="596,248,0,0" VerticalAlignment="Top"/>
         <Button x:Name="BtnCometido" Content="Agregar cometido" HorizontalAlignment="Left" Margin="439,350,0,0" VerticalAlignment="Top" Width="123" Click="BtnCometido_Click"/>
         <Button x:Name="BtnLimpiar" Content="Limpiar formulario" HorizontalAlignment="Left" Margin="615,350,0,0" VerticalAlignment="Top" Width="122" Click="BtnLimpiar_Click"/>
-        <xctk:TimePicker x:Name="TpHoraFin" Value="{Binding starttime, ElementName=Time, Mode=TwoWay}" BorderThickness="0"  EndTime="23:59:0" AllowSpin="False" Margin="640,247,35,137" StartTime="6:0:0" TimeInterval="0:30:0"/>
+        <xctk:TimePicker x:Name="TpHoraFin" Value="{Binding starttime, ElementName=Time, Mode=TwoWay}" BorderThickness="0"  EndTime="23:59:0" AllowSpin="False" Margin="640,247,35,394" StartTime="6:0:0" TimeInterval="0:30:0"/>
         <Label Content="Grado" HorizontalAlignment="Left" Margin="274,96,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtGrado" HorizontalAlignment="Left" Height="23" Margin="336,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" IsEnabled="False"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="252" Margin="10,406,0,0" Stroke="Black" VerticalAlignment="Top" Width="772"/>
+        <Label Content="Reimprimir Cometido" HorizontalAlignment="Left" Margin="4,393,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}"/>
+        <DataGrid x:Name="DgReimprimir" HorizontalAlignment="Left" Height="199" Margin="25,424,0,0" VerticalAlignment="Top" Width="739" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Número de cometido" Binding="{Binding IdCometidos}" />
+                <DataGridTextColumn Header="Nombres" Binding="{Binding Empleados.Nombres}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Empleados.Apellidos}"/>                
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha_cometido, StringFormat= dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Destino" Binding="{Binding Destino.NombreDestino}"/>
+                <DataGridTextColumn Header="Motivo" Binding="{Binding Motivo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="BtnReimprimir" Content="Reimprimir Cometido" HorizontalAlignment="Left" Margin="501,628,0,0" VerticalAlignment="Top" Width="263" Click="BtnReimprimir_Click"/>
     </Grid>
 </Window>

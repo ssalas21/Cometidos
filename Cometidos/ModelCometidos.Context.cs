@@ -35,5 +35,7 @@ namespace Cometidos
         public virtual DbSet<Isapre> Isapre { get; set; }
         public virtual DbSet<ValoresViaticos> ValoresViaticos { get; set; }
         public virtual DbSet<Vinculo> Vinculo { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

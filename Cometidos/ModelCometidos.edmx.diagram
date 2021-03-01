@@ -23,6 +23,9 @@
         <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdIsa__173876EA" ManuallyRouted="false" />
         <AssociationConnector Association="DBCometidosModel.FK__Empleados__IdVin__145C0A3F" ManuallyRouted="false" />
         <AssociationConnector Association="DBCometidosModel.FK__Estudios__Rut_fk__267ABA7A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBCometidosModel.Usuarios" Width="1.5" PointX="5.375" PointY="9.875" />
+        <AssociationConnector Association="DBCometidosModel.FK__Cometidos__Nombr__2F10007B" />
+        <EntityTypeShape EntityType="DBCometidosModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

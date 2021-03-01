@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cometidos.BLL;
 
 namespace Cometidos {
     /// <summary>
@@ -23,10 +24,12 @@ namespace Cometidos {
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e) {
-            if (TxtUser.Text == "123" && TxtPassword.Password == "123") {
-                Index index = new Index("seba");
+            if (new UsuariosBLL().Login(TxtUser.Text.Trim().ToUpper(), TxtPassword.Password.Trim().ToUpper())) {
+                Index index = new Index(TxtUser.Text);
                 index.Show();
                 this.Close();
+            } else {
+                MessageBox.Show("Credenciales incorrectas, vuelva a intentar", "Error de acceso", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

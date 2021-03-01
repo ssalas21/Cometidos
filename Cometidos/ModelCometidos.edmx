@@ -26,6 +26,8 @@
           <Property Name="Nulo" Type="int" Nullable="false" />
           <Property Name="Valor_destino_old" Type="int" Nullable="false" />
           <Property Name="Viatico" Type="int" Nullable="false" />
+          <Property Name="NombreUsuario_FK" Type="varchar" MaxLength="50" />
+          <Property Name="Movilizacion" Type="int" />
         </EntityType>
         <EntityType Name="Departamento">
           <Key>
@@ -87,6 +89,24 @@
           <Property Name="IdIsapre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NombreIsapre" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="NombreUsuario" />
+          </Key>
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="15" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="ValoresViaticos">
           <Key>
             <PropertyRef Name="IdValores" />
@@ -112,6 +132,18 @@
             </Principal>
             <Dependent Role="Cometidos">
               <PropertyRef Name="IdDestino_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cometidos__Nombr__2F10007B">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Cometidos" Type="Self.Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="NombreUsuario" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="NombreUsuario_FK" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -208,10 +240,16 @@
           <EntitySet Name="Escalafon" EntityType="Self.Escalafon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Estudios" EntityType="Self.Estudios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Isapre" EntityType="Self.Isapre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ValoresViaticos" EntityType="Self.ValoresViaticos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vinculo" EntityType="Self.Vinculo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Cometidos__IdDes__20C1E124" Association="Self.FK__Cometidos__IdDes__20C1E124">
             <End Role="Destino" EntitySet="Destino" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cometidos__Nombr__2F10007B" Association="Self.FK__Cometidos__Nombr__2F10007B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Cometidos" EntitySet="Cometidos" />
           </AssociationSet>
           <AssociationSet Name="FK__Cometidos__Rut_f__21B6055D" Association="Self.FK__Cometidos__Rut_f__21B6055D">
@@ -263,14 +301,17 @@
           <Property Name="Rut_fk" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdDestino_FK" Type="Int32" Nullable="false" />
           <Property Name="Fecha_cometido" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Hora_salida" Type="DateTime" />
-          <Property Name="Hora_llegada" Type="DateTime" />
+          <Property Name="Hora_salida" Type="DateTime" Precision="3" />
+          <Property Name="Hora_llegada" Type="DateTime" Precision="3" />
           <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Nulo" Type="Int32" Nullable="false" />
           <Property Name="Valor_destino_old" Type="Int32" Nullable="false" />
           <Property Name="Viatico" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Destino" Relationship="Self.FK__Cometidos__IdDes__20C1E124" FromRole="Cometidos" ToRole="Destino" />
           <NavigationProperty Name="Empleados" Relationship="Self.FK__Cometidos__Rut_f__21B6055D" FromRole="Cometidos" ToRole="Empleados" />
+          <Property Name="NombreUsuario_FK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuarios" Relationship="DBCometidosModel.FK__Cometidos__Nombr__2F10007B" FromRole="Cometidos" ToRole="Usuarios" />
+          <Property Name="Movilizacion" Type="Int32" />
         </EntityType>
         <EntityType Name="Departamento">
           <Key>
@@ -500,7 +541,44 @@
             <End Role="Empleados" EntitySet="Empleados" />
             <End Role="Estudios" EntitySet="Estudios" />
           </AssociationSet>
+          <EntitySet Name="Usuarios" EntityType="DBCometidosModel.Usuarios" />
+          <AssociationSet Name="FK__Cometidos__Nombr__2F10007B" Association="DBCometidosModel.FK__Cometidos__Nombr__2F10007B">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Cometidos" EntitySet="Cometidos" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="DBCometidosModel.sysdiagrams" />
         </EntityContainer>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="NombreUsuario" />
+          </Key>
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cometidos" Relationship="DBCometidosModel.FK__Cometidos__Nombr__2F10007B" FromRole="Usuarios" ToRole="Cometidos" />
+        </EntityType>
+        <Association Name="FK__Cometidos__Nombr__2F10007B">
+          <End Type="DBCometidosModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="DBCometidosModel.Cometidos" Role="Cometidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="NombreUsuario" />
+            </Principal>
+            <Dependent Role="Cometidos">
+              <PropertyRef Name="NombreUsuario_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -518,6 +596,8 @@
           <EntitySetMapping Name="Cometidos">
             <EntityTypeMapping TypeName="DBCometidosModel.Cometidos">
               <MappingFragment StoreEntitySet="Cometidos">
+                <ScalarProperty Name="Movilizacion" ColumnName="Movilizacion" />
+                <ScalarProperty Name="NombreUsuario_FK" ColumnName="NombreUsuario_FK" />
                 <ScalarProperty Name="IdCometidos" ColumnName="IdCometidos" />
                 <ScalarProperty Name="Rut_fk" ColumnName="Rut_fk" />
                 <ScalarProperty Name="IdDestino_FK" ColumnName="IdDestino_FK" />
@@ -612,6 +692,26 @@
               <MappingFragment StoreEntitySet="Vinculo">
                 <ScalarProperty Name="IdVinculo" ColumnName="IdVinculo" />
                 <ScalarProperty Name="NombreVinculo" ColumnName="NombreVinculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="DBCometidosModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DBCometidosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
