@@ -13,5 +13,10 @@ namespace Cometidos.BLL {
             return (from l in context.Usuarios where l.NombreUsuario == user && l.Password == pass select l).Any();            
         }
 
+        public int GetAdmin(string user) {
+            context = new DBCometidosEntities();
+            return Convert.ToInt32((from l in context.Usuarios where l.NombreUsuario == user select l.Admin).FirstOrDefault());
+        }
+
     }
 }

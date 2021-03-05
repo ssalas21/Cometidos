@@ -14,6 +14,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cometidos.BLL;
 using Spire.Doc;
+using Section = Spire.Doc.Section;
+using Table = Spire.Doc.Table;
+using TableRow = Spire.Doc.TableRow;
+using Paragraph = Spire.Doc.Documents.Paragraph;
 
 namespace Cometidos {
     /// <summary>
@@ -35,6 +39,22 @@ namespace Cometidos {
             CmbDestino.SelectedValuePath = "IdDestino";
             CmbDestino.SelectedIndex = 37;
             DgReimprimir.ItemsSource = new CometidosBLL().GetCometidos();
+            if (new UsuariosBLL().GetAdmin(user) == 1) {
+                BtnDecreto.IsEnabled = true;
+                BtnDecreto.Visibility = Visibility.Visible;
+                CmbMes.IsEnabled = true;
+                CmbMes.Visibility = Visibility.Visible;
+                LblMes.Visibility = Visibility.Visible;
+                LblMes.IsEnabled = true;
+                CmbAnno.IsEnabled = true;
+                CmbAnno.Visibility = Visibility.Visible;
+                LblAnno.Visibility = Visibility.Visible;
+                LblAnno.IsEnabled = true;
+                CmbAnno.ItemsSource = new CometidosBLL().GetDatesYears();
+                CmbAnno.SelectedIndex = 0;
+                CmbMes.ItemsSource = new CometidosBLL().GetDatesMonths();
+                CmbMes.SelectedIndex = 0;
+            }
         }
 
         private void BtnCometido_Click(object sender, RoutedEventArgs e) {
@@ -74,7 +94,7 @@ namespace Cometidos {
                     wordApp.Documents.Open(path2);
                     wordApp.ActiveDocument.PrintOut();
                     wordApp.ActiveDocument.PrintOut();
-                    wordApp.ActiveDocument.Close();                    
+                    wordApp.ActiveDocument.Close();
                     File.Delete(path2);
                     MessageBox.Show("Cometido ingresado correctamente");
                     BtnLimpiar_Click(sender, e);
@@ -151,6 +171,72 @@ namespace Cometidos {
             } else {
                 ReloadCometidos();
             }
+        }
+
+        private void BtnDecreto_Click(object sender, RoutedEventArgs e) {
+            List<Cometidos> cometidos = new CometidosBLL().GetCometidos(Convert.ToInt32(CmbMes.SelectedValue), Convert.ToInt32(CmbAnno.SelectedValue));
+            Document doc = new Document();
+            string path = Environment.CurrentDirectory;
+            string path2 = path + "\\decreto2.docx";
+            path = path + "\\decreto.docx";
+            doc.LoadFromFile(path);
+            Section section = doc.Sections[0];
+            //”Burning.liu” as a “key text”
+            Spire.Doc.Documents.TextSelection selection = doc.FindString("[tabla]", true, true);
+            Spire.Doc.Fields.TextRange range = selection.GetAsOneRange();
+            Paragraph paragraph = range.OwnerParagraph;
+            Body body = paragraph.OwnerTextBody;
+            int index = body.ChildObjects.IndexOf(paragraph);
+            Table table = section.AddTable(true);
+            table.ResetCells(cometidos.Count + 1, 4);
+            String[,] data = new String[cometidos.Count, 4];
+            int count = 0;
+            doc.Replace("[mes]", cometidos[0].Fecha_cometido.Month.ToString("d2"), false, true);
+            foreach (Cometidos item in cometidos) {
+                data[count, 0] = item.IdCometidos.ToString();
+                data[count, 1] = item.Empleados.Nombres.ToString() + " " + item.Empleados.Apellidos.ToString();
+                data[count, 2] = item.Empleados.Departamento.NombreDepartamento.ToString();
+                data[count, 3] = item.Fecha_cometido.ToString("dd MMMM yyyy");
+                count++;
+            }
+            String[] Header = { "Número Cometido", "Funcionario", "Departamento", "Fecha" };
+            //Header Row
+            TableRow FRow = table.Rows[0];
+            FRow.IsHeader = true;
+            //Row Height
+            FRow.Height = 23;
+            //Header Format            
+            for (int i = 0; i < Header.Length; i++) {
+                //Cell Alignment
+                Paragraph p = FRow.Cells[i].AddParagraph();
+                FRow.Cells[i].CellFormat.VerticalAlignment = Spire.Doc.Documents.VerticalAlignment.Middle;
+                p.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+                //Data Format
+                Spire.Doc.Fields.TextRange TR = p.AppendText(Header[i]);
+                TR.CharacterFormat.FontName = "Calibri";
+                TR.CharacterFormat.FontSize = 11;
+                TR.CharacterFormat.Bold = true;
+            }
+            //Data Row
+            for (int r = 0; r < cometidos.Count; r++) {
+                TableRow DataRow = table.Rows[r + 1];                               
+                //C Represents Column.
+                for (int c = 0; c < 4; c++) {
+                    //Cell Alignment
+                    DataRow.Cells[c].CellFormat.VerticalAlignment = Spire.Doc.Documents.VerticalAlignment.Middle;
+                    //Fill Data in Rows
+                    Paragraph p2 = DataRow.Cells[c].AddParagraph();
+                    Spire.Doc.Fields.TextRange TR2 = p2.AppendText(data[r,c]);
+                    //Format Cells
+                    p2.Format.HorizontalAlignment = Spire.Doc.Documents.HorizontalAlignment.Center;
+                    TR2.CharacterFormat.FontName = "Calibri";
+                    TR2.CharacterFormat.FontSize = 8;                    
+                }
+            }
+            body.ChildObjects.Remove(paragraph);
+            body.ChildObjects.Insert(index, table);
+            doc.SaveToFile("result.doc", FileFormat.Doc);
+            System.Diagnostics.Process.Start("result.doc");
         }
     }
 }

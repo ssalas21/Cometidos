@@ -23,6 +23,7 @@ namespace Cometidos
         public string NombreUsuario { get; set; }
         public string Password { get; set; }
         public string Nombre { get; set; }
+        public Nullable<int> Admin { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cometidos> Cometidos { get; set; }

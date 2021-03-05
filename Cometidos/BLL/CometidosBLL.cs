@@ -39,8 +39,22 @@ namespace Cometidos.BLL {
                 return cometidos;
             } catch (Exception ex) {
                 throw ex;    
-            }
-            
+            }            
+        }
+
+        public List<Cometidos> GetCometidos(int mes, int anno) {
+            context = new DBCometidosEntities();
+            return (from l in context.Cometidos where l.Fecha_cometido.Month == mes && l.Fecha_cometido.Year == anno select l).ToList();
+        }
+
+        public List<int> GetDatesYears() {
+            context = new DBCometidosEntities();
+            return (from l in context.Cometidos orderby l.Fecha_cometido.Year descending select l.Fecha_cometido.Year).Distinct().ToList();
+        }
+
+        public List<int> GetDatesMonths() {
+            context = new DBCometidosEntities();
+            return (from l in context.Cometidos orderby l.Fecha_cometido.Month ascending select l.Fecha_cometido.Month).Distinct().ToList();
         }
     }
 }

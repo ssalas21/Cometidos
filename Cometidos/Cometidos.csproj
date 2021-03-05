@@ -247,7 +247,9 @@
     <None Include="cometido.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Cometidos_TemporaryKey.pfx" />
+    <None Include="decreto.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="ModelCometidos.edmx.diagram">
       <DependentUpon>ModelCometidos.edmx</DependentUpon>
     </None>

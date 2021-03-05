@@ -53,12 +53,17 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Número de cometido" Binding="{Binding IdCometidos}" />
                 <DataGridTextColumn Header="Nombres" Binding="{Binding Empleados.Nombres}"/>
-                <DataGridTextColumn Header="Apellidos" Binding="{Binding Empleados.Apellidos}"/>                
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Empleados.Apellidos}"/>
                 <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha_cometido, StringFormat= dd/MM/yyyy}"/>
                 <DataGridTextColumn Header="Destino" Binding="{Binding Destino.NombreDestino}"/>
                 <DataGridTextColumn Header="Motivo" Binding="{Binding Motivo}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnReimprimir" Content="Reimprimir Cometido" HorizontalAlignment="Left" Margin="501,628,0,0" VerticalAlignment="Top" Width="263" Click="BtnReimprimir_Click"/>
+        <Button x:Name="BtnDecreto" Content="Generar Decreto" HorizontalAlignment="Left" Margin="312,627,0,0" VerticalAlignment="Top" Width="120" Visibility="Hidden" IsEnabled="False" Click="BtnDecreto_Click"/>
+        <ComboBox x:Name="CmbMes" HorizontalAlignment="Left" Margin="63,626,0,0" VerticalAlignment="Top" Width="90" Visibility="Hidden" IsEnabled="False"/>
+        <ComboBox x:Name="CmbAnno" HorizontalAlignment="Left" Margin="220,626,0,0" VerticalAlignment="Top" Width="63" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="LblAnno" Content="Año" HorizontalAlignment="Left" Margin="177,623,0,0" VerticalAlignment="Top" Visibility="Hidden" IsEnabled="False"/>
+        <Label x:Name="LblMes" Content="Mes" HorizontalAlignment="Left" Margin="26,623,0,0" VerticalAlignment="Top" Visibility="Hidden" IsEnabled="False"/>
     </Grid>
 </Window>

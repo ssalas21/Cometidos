@@ -106,6 +106,7 @@
           <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="15" />
           <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Admin" Type="int" />
         </EntityType>
         <EntityType Name="ValoresViaticos">
           <Key>
@@ -556,6 +557,7 @@
           <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Cometidos" Relationship="DBCometidosModel.FK__Cometidos__Nombr__2F10007B" FromRole="Usuarios" ToRole="Cometidos" />
+          <Property Name="Admin" Type="Int32" />
         </EntityType>
         <Association Name="FK__Cometidos__Nombr__2F10007B">
           <End Type="DBCometidosModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
@@ -698,6 +700,7 @@
           <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="DBCometidosModel.Usuarios">
               <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
