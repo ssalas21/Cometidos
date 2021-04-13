@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0CF7A3601D714847B683B18D768C4E1E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2FD674479C16D04A415EDA7477AD7040"
         "OwnerKey" = "8:_9F6BFD604F716B41A1318BD5DDC12EEE"
         "MsmSig" = "8:_UNDEFINED"
@@ -129,6 +135,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_91234F238AA34065A64C6833B356E965"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9B670A2A4F35D6FF8E8B725EFABF2F0F"
         "OwnerKey" = "8:_F294799A437348C98665967EEA379534"
         "MsmSig" = "8:_UNDEFINED"
@@ -160,12 +172,6 @@
         "Entry"
         {
         "MsmKey" = "8:_A749EF6026B74356B44E338C4C6CBC93"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B30E9B9205AC42AF8C1601F261CAF7D2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -227,12 +233,6 @@
         {
         "MsmKey" = "8:_FB035FC083E5C218D02B90E0C2CEC676"
         "OwnerKey" = "8:_F294799A437348C98665967EEA379534"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_614F9FF75137D30B0E5E5F62080C612F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -349,6 +349,12 @@
         "OwnerKey" = "8:_6EB0E5A90DB40E0B418F13FFC457431E"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_614F9FF75137D30B0E5E5F62080C612F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -367,6 +373,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -383,6 +405,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -412,6 +450,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CF7A3601D714847B683B18D768C4E1E"
+            {
+            "SourcePath" = "8:..\\Cometidos\\decreto.docx"
+            "TargetName" = "8:decreto.docx"
+            "Tag" = "8:"
+            "Folder" = "8:_65E657E40BD94C5FAA2DC7C2D65D5E30"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2FD674479C16D04A415EDA7477AD7040"
             {
             "AssemblyRegister" = "3:1"
@@ -691,6 +749,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91234F238AA34065A64C6833B356E965"
+            {
+            "SourcePath" = "8:..\\Cometidos\\cometido.docx"
+            "TargetName" = "8:cometido.docx"
+            "Tag" = "8:"
+            "Folder" = "8:_65E657E40BD94C5FAA2DC7C2D65D5E30"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9B670A2A4F35D6FF8E8B725EFABF2F0F"
             {
             "AssemblyRegister" = "3:1"
@@ -788,26 +866,6 @@
             {
             "SourcePath" = "8:D:\\Descargas\\favicon.ico"
             "TargetName" = "8:favicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_65E657E40BD94C5FAA2DC7C2D65D5E30"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B30E9B9205AC42AF8C1601F261CAF7D2"
-            {
-            "SourcePath" = "8:D:\\Descargas\\cometido.docx"
-            "TargetName" = "8:cometido.docx"
             "Tag" = "8:"
             "Folder" = "8:_65E657E40BD94C5FAA2DC7C2D65D5E30"
             "Condition" = "8:"
@@ -1098,7 +1156,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cometidos"
         "ProductCode" = "8:{A80AF7C1-EFA5-4683-8AC5-455779633608}"
-        "PackageCode" = "8:{E2E89039-3678-4365-BD91-9DA602441617}"
+        "PackageCode" = "8:{E6A4E4D1-8243-44A9-916E-0F7C39193E53}"
         "UpgradeCode" = "8:{E3EAA8A9-77F1-4B90-89D1-260B2EEDFD16}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

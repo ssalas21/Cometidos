@@ -25,7 +25,7 @@ namespace Cometidos {
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e) {
             if (new UsuariosBLL().Login(TxtUser.Text.Trim().ToUpper(), TxtPassword.Password.Trim().ToUpper())) {
-                Index index = new Index(TxtUser.Text);
+                Index index = new Index(TxtUser.Text.ToUpper());
                 index.Show();
                 this.Close();
             } else {

@@ -10,7 +10,7 @@ namespace Cometidos.BLL {
 
         public List<Cometidos> GetCometidos() {
             context = new DBCometidosEntities();
-            return (from l in context.Cometidos orderby l.IdCometidos descending select l).Take(10).ToList();
+            return (from l in context.Cometidos where l.Nulo == 1 orderby l.IdCometidos descending select l).Take(10).ToList();
         }
 
         public Cometidos GetCometidos(int id) {
@@ -38,13 +38,13 @@ namespace Cometidos.BLL {
                 context.SaveChanges();
                 return cometidos;
             } catch (Exception ex) {
-                throw ex;    
-            }            
+                throw ex;
+            }
         }
 
         public List<Cometidos> GetCometidos(int mes, int anno) {
             context = new DBCometidosEntities();
-            return (from l in context.Cometidos where l.Fecha_cometido.Month == mes && l.Fecha_cometido.Year == anno select l).ToList();
+            return (from l in context.Cometidos where l.Fecha_cometido.Month == mes && l.Fecha_cometido.Year == anno && l.Nulo == 1 select l).ToList();
         }
 
         public List<int> GetDatesYears() {
@@ -54,7 +54,12 @@ namespace Cometidos.BLL {
 
         public List<int> GetDatesMonths() {
             context = new DBCometidosEntities();
-            return (from l in context.Cometidos orderby l.Fecha_cometido.Month ascending select l.Fecha_cometido.Month).Distinct().ToList();
+            return (from l in context.Cometidos orderby l.Fecha_cometido.Month ascending select l.Fecha_cometido.Month).Distinct().OrderBy(o=>o).ToList();
+        }
+
+        public bool CheckCometidos(string rut, DateTime horaSalida) {
+            context = new DBCometidosEntities();
+            return (from l in context.Cometidos where l.Rut_fk == rut && l.Hora_salida.Value.Year == horaSalida.Year && l.Hora_salida.Value.Month == horaSalida.Month && l.Hora_salida.Value.Day == horaSalida.Day && l.Nulo == 1 select l).Any();
         }
     }
 }

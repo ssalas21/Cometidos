@@ -14,7 +14,21 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="314" Margin="33,29,0,0" Stroke="Black" VerticalAlignment="Top" Width="717" Grid.ColumnSpan="2"/>
         <Label Content="Buscar funcionario" HorizontalAlignment="Left" Margin="23,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.207,0.244" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="61" Margin="33,348,0,0" Stroke="Black" VerticalAlignment="Top" Width="717" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="DgEmpleados" HorizontalAlignment="Left" Height="218" Margin="47,106,0,0" VerticalAlignment="Top" Width="692" Grid.ColumnSpan="2" IsReadOnly="True"/>
+        <DataGrid x:Name="DgEmpleados" HorizontalAlignment="Left" Height="218" Margin="47,106,0,0" VerticalAlignment="Top" Width="692" Grid.ColumnSpan="2" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}"/>
+                <DataGridTextColumn Header="Nombres" Binding="{Binding Nombres}"/>
+                <DataGridTextColumn Header="Departamento" Binding="{Binding Departamento.NombreDepartamento}" />
+                <DataGridTextColumn Header="Grado" Binding="{Binding Grado}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>            
+        </DataGrid>
         <Button x:Name="BtnSeleccionar" Content="Seleccionar funcionario" HorizontalAlignment="Left" Margin="103,366,0,0" VerticalAlignment="Top" Width="228" Click="BtnSeleccionar_Click"/>
         <Button x:Name="BtnVolver" Content="Volver atras" HorizontalAlignment="Left" Margin="438,366,0,0" VerticalAlignment="Top" Width="228" Click="BtnVolver_Click" Grid.ColumnSpan="2"/>
         <TextBox x:Name="TxtBuscar" HorizontalAlignment="Left" Height="23" Margin="301,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="438" KeyUp="TxtBuscar_KeyUp" Grid.ColumnSpan="2"/>
